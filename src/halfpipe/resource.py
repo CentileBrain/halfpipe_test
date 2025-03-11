@@ -14,9 +14,11 @@ online_resources: dict[str, str] = {
     "index.html": "https://github.com/HALFpipe/QualityCheck/releases/download/0.4.1/index.html",
     "tpl_MNI152NLin6Asym_from_MNI152NLin2009cAsym_mode_image_xfm.h5": "https://drive.usercontent.google.com/u/0/uc?id=1hqPWJCKmBo-TbG9DVGWxKBO2Kgrz1SNg&export=download",
     "tpl_MNI152NLin2009cAsym_from_MNI152NLin6Asym_mode_image_xfm.h5": "https://drive.usercontent.google.com/u/0/uc?id=1hqPWJCKmBo-TbG9DVGWxKBO2Kgrz1SNg&export=download",
-    "tpl-MNI152NLin2009cAsym_RegistrationCheckOverlay.nii.gz": "https://drive.usercontent.google.com/u/0/uc?id=1hqPWJCKmBo-TbG9DVGWxKBO2Kgrz1SNg&export=download",
+    "tpl-MNI152NLin2009cAsym_RegistrationCheckOverlay.nii.gz": "https://figshare.com/ndownloader/files/22447958",
     "tpl_MNI152NLin6Asym_from_MNIPediatricAsym_mode_image_xfm.h5": "https://drive.usercontent.google.com/u/0/uc?id=1hqPWJCKmBo-TbG9DVGWxKBO2Kgrz1SNg&export=download",
-
+    "tpl-MNIPediatricAsym_RegistrationCheckOverlay.nii.gz": "https://figshare.com/ndownloader/files/22447958",
+    "tpl-MNIPediatricAsym:cohort-2_RegistrationCheckOverlay.nii.gz": "https://figshare.com/ndownloader/files/22447958",
+    "tpl-MNIPediatricAsym_cohort-2_RegistrationCheckOverlay.nii.gz": "https://figshare.com/ndownloader/files/22447958",
 }
 
 

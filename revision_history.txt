@@ -1,8 +1,11 @@
-This version (v18) is based on HALFpipe_3_6_v3, and made the following changes:
+This version (v19) is based on HALFpipe_3_4 (v14), and made the following changes:
 
-1. /home/frangoulab/Scratch/HALFpipe_3_6_v4/src/halfpipe/workflows/post_processing/fmriprep_adapter.py:
-comment out line 46, uncomment out line 47
 
-2. /home/frangoulab/Scratch/HALFpipe_3_6_v4/src/halfpipe/workflows/reports/func.py:
-comment out line 64
-addeed line 65
+
+1. /home/frangoulab/Scratch/HALFpipe_3_7_v1/src/halfpipe/workflows/post_processing/fmriprep_adapter.py
+comment out line 46, added line 47, add _cohort-2 in between
+
+2. /home/frangoulab/Scratch/HALFpipe_3_7_v1/src/halfpipe/workflows/reports/func.py
+comment out line 64, added line 65 in between
+
+3. resource.py line 17 and 19 nii.gz link changed to the original links

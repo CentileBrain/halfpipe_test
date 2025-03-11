@@ -49,8 +49,7 @@ def init_anat_report_wf(
         run_without_submitting=True,
         nohash=True,
     )
-    # select_std.inputs.key = Constants.reference_space
-    select_std.inputs.key = f"{Constants.reference_space}:cohort-2"
+    select_std.inputs.key = Constants.reference_space
     workflow.connect(inputnode, "standardized", select_std, "standardized")
     workflow.connect(inputnode, "std_mask", select_std, "std_mask")
     workflow.connect(inputnode, "template", select_std, "keys")
