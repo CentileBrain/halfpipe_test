@@ -1,2 +1,4 @@
-This version (v16) enables file saving after the fMRIPrep step by changing the line 191 from src/halfpipe/workflows/fmriprep.py.
- also added "print('v16')" after the if statement.
+This version (v17) is based on HALFpipe_3_4, and made the following changes:
+
+1. comment out line 52 in /home/frangoulab/Scratch/HALFpipe_3_6_v3/src/halfpipe/workflows/reports/anat.py;
+2. added line 53 by adding ":cohort-2" in /home/frangoulab/Scratch/HALFpipe_3_6_v3/src/halfpipe/workflows/reports/anat.py 

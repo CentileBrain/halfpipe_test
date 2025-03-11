@@ -188,8 +188,7 @@ class FmriprepFactory(Factory):
             for name in ["ds_bold_surfs", "ds_bold_std"]:
                 node = func_derivatives_wf.get_node(name)
                 if isinstance(node, pe.Node):
-                    # func_derivatives_wf.remove_nodes([node])
-                    print('v16')
+                    func_derivatives_wf.remove_nodes([node])
 
             # patch memory usage
             memcalc = MemoryCalculator.from_bold_file(bold_file_path)
