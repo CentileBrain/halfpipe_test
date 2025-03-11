@@ -117,7 +117,8 @@ class ImagingVariables:
         query = {
             "datatype": "anat",
             "from": "T1w",
-            "to": "MNI152NLin2009cAsym",
+            # "to": "MNI152NLin2009cAsym",
+            "to": "MNIPediatricAsym",
             "mode": "image",
             "suffix": "xfm",
             "extension": ".h5",

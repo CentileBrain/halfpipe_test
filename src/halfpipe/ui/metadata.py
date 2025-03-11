@@ -48,6 +48,8 @@ def display_str(x):
         return "MNI ICBM 152 non-linear 6th Generation Asymmetric (FSL)"
     elif x == "MNI152NLin2009cAsym":
         return "MNI ICBM 2009c Nonlinear Asymmetric"
+    elif x == "MNIPediatricAsym":
+        return "MNI Pediatric asymetric"
     elif x == "slice_encoding_direction":
         return "slice acquisition direction"
     return humanize(x)

@@ -37,7 +37,7 @@ slice_order_strs = [
     "alternating decreasing odd first",
 ]
 
-templates = ["MNI152NLin2009cAsym", "MNI152NLin6Asym"]
+templates = ["MNI152NLin2009cAsym", "MNI152NLin6Asym", "MNIPediatricAsym"]
 
 
 class BaseMetadataSchema(Schema):

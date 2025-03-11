@@ -95,8 +95,7 @@ class FmriprepFactory(Factory):
         config.execution._layout = None
         config.execution.layout = None
 
-        # output_spaces = [f"{Constants.reference_space}:res-{Constants.reference_res}:cohort-2"]
-        output_spaces = [f"{Constants.reference_space}:res-{Constants.reference_res}"]
+        output_spaces = [f"{Constants.reference_space}:res-{Constants.reference_res}:cohort-2"]
 
         if global_settings["run_reconall"]:
             output_spaces.append("fsaverage:den-164k")
@@ -189,8 +188,7 @@ class FmriprepFactory(Factory):
             for name in ["ds_bold_surfs", "ds_bold_std"]:
                 node = func_derivatives_wf.get_node(name)
                 if isinstance(node, pe.Node):
-                    # func_derivatives_wf.remove_nodes([node])
-                    print("adult v1")
+                    func_derivatives_wf.remove_nodes([node])
 
             # patch memory usage
             memcalc = MemoryCalculator.from_bold_file(bold_file_path)
@@ -235,8 +233,7 @@ class FmriprepFactory(Factory):
         return bold_file_paths
 
     def get(self, *args, **kwargs):
-        # raise NotImplementedError
-        return super().get(*args, **kwargs)
+        raise NotImplementedError
 
     def connect(self, nodehierarchy, node, source_file=None, subject_id=None, **_) -> None:
         """
