@@ -61,7 +61,8 @@ def init_func_report_wf(workdir=None, name="func_report_wf", memcalc: MemoryCalc
         run_without_submitting=True,
         nohash=True,
     )
-    select_std.inputs.key = f"{Constants.reference_space}_res-{Constants.reference_res}"
+    # select_std.inputs.key = f"{Constants.reference_space}_res-{Constants.reference_res}"
+    select_std.inputs.key = f"{Constants.reference_space}_res-{Constants.reference_res}_cohort-2"
     workflow.connect(inputnode, "bold_std", select_std, "bold_std")
     workflow.connect(inputnode, "bold_std_ref", select_std, "bold_std_ref")
     workflow.connect(inputnode, "bold_mask_std", select_std, "bold_mask_std")
