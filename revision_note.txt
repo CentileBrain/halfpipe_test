@@ -1,3 +1,0 @@
-This version removes 'cohort-2' from line 98 in /home/frangoulab/Scratch/HALFpipe_3_6/src/halfpipe/workflows/fmriprep.py.
-
-Failed.

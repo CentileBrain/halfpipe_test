@@ -1,0 +1,2 @@
+This version (v16) enables file saving after the fMRIPrep step by changing the line 191 from src/halfpipe/workflows/fmriprep.py.
+ also added "print('v16')" after the if statement.
