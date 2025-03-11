@@ -1,2 +1,13 @@
-This version (v16) enables file saving after the fMRIPrep step by changing the line 191 from src/halfpipe/workflows/fmriprep.py.
- also added "print('v16')" after the if statement.
+1. This version (v1) enables file saving after the fMRIPrep step by changing the line 191 from src/halfpipe/workflows/fmriprep.py.
+also added "print('adult v1')" after the if statement.
+line 238 changed back based on commit history from github.
+
+2. src/halfpipe/workflows/constants.py
+line 9: replace MNIPediatricAsym with MNI152NLin2009cAsym
+ 
+3. src/halfpipe/workflows/memory.py
+
+follow github to reverse.
+
+
+This is NOT a pediatric version. This is an adult version for comparing results based on version mni-pediatric branch.

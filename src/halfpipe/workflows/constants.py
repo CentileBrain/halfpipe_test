@@ -6,7 +6,8 @@ from typing import Final
 
 
 class Constants:
-    reference_space: Final[str] = "MNIPediatricAsym"
+    reference_space: Final[str] = "MNI152NLin2009cAsym"
+    # reference_space: Final[str] = "MNIPediatricAsym"
     reference_res: Final[int] = 2
 
     workflow_directory: Final[str] = "nipype"
