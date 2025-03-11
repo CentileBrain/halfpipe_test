@@ -1,11 +1,5 @@
-This version (v19) is based on HALFpipe_3_4 (v14), and made the following changes:
+This version (v20) is based on HALFpipe_3_7_v1 (v19), and made the following changes:
 
+1. in workflow/reports/anat.py, comment out line 52; line 53 add :cohort-2 position in between.
 
-
-1. /home/frangoulab/Scratch/HALFpipe_3_7_v1/src/halfpipe/workflows/post_processing/fmriprep_adapter.py
-comment out line 46, added line 47, add _cohort-2 in between
-
-2. /home/frangoulab/Scratch/HALFpipe_3_7_v1/src/halfpipe/workflows/reports/func.py
-comment out line 64, added line 65 in between
-
-3. resource.py line 17 and 19 nii.gz link changed to the original links
+2. resource.py line 17,19 add original report template for nii.gz keys.
