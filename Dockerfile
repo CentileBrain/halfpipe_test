@@ -21,7 +21,7 @@ RUN mamba install --yes --use-local \
 RUN mamba update --yes --all
 RUN --mount=source=requirements.txt,target=/requirements.txt \
     --mount=source=requirements-test.txt,target=/requirements-test.txt \
-    --mount=source=install-requirements.sh,target=/install-requirements.sh \
+    # --mount=source=install-requirements.sh,target=/install-requirements.sh \
     /install-requirements.sh \
     --requirements-file /requirements.txt \
     --requirements-file /requirements-test.txt
