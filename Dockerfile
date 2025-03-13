@@ -19,12 +19,19 @@ COPY --from=builder /opt/conda/conda-bld/ /opt/conda/conda-bld/
 RUN mamba install --yes --use-local \
     "python=3.11" "pip" "nodejs" "rmath" "ants"
 RUN mamba update --yes --all
-RUN --mount=source=requirements.txt,target=/requirements.txt \
-    --mount=source=requirements-test.txt,target=/requirements-test.txt \
-    --mount=source=install-requirements.sh,target=/install-requirements.sh \
-    /install-requirements.sh \
-    --requirements-file /requirements.txt \
-    --requirements-file /requirements-test.txt
+
+# ✅ COPY requirement files into the container instead of using --mount
+COPY requirements.txt /requirements.txt
+COPY requirements-test.txt /requirements-test.txt
+COPY install-requirements.sh /install-requirements.sh
+
+# ✅ Make sure install-requirements.sh is executable
+RUN chmod +x /install-requirements.sh
+
+# ✅ Run the installation script
+RUN /install-requirements.sh --requirements-file /requirements.txt --requirements-file /requirements-test.txt
+
+# ✅ Clean up conda cache to reduce image size
 RUN mamba clean --yes --all --force-pkgs-dirs \
     && find /opt/conda -follow -type f -name "*.a" -delete \
     && rm -rf /opt/conda/conda-bld
@@ -62,17 +69,18 @@ RUN python -c "from matplotlib import font_manager" \
     && sed -i '/backend:/s/^#*//;/^backend/s/: .*/: Agg/' \
     $( python -c "import matplotlib; print(matplotlib.matplotlib_fname())" )
 
-# Download all resources
-RUN --mount=source=src/halfpipe/resource.py,target=/resource.py \
-    python /resource.py
+# ✅ Copy resource file explicitly
+COPY src/halfpipe/resource.py /resource.py
+
+# ✅ Run the resource download script
+RUN python /resource.py
 
 # Add `coinstac` server components
 COPY --from=coinstacteam/coinstac-base:latest /server/ /server/
 
 # Install `halfpipe`
-RUN --mount=target=/halfpipe \
-    cp -r /halfpipe /tmp \
-    && pip install --no-deps /tmp/halfpipe \
+COPY halfpipe /halfpipe  # Ensure the "halfpipe" directory is copied
+RUN pip install --no-deps /halfpipe \
     && rm -rf ~/.cache/pip /var/cache/pip /tmp/* /var/tmp/* \
     && sync
 
