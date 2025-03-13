@@ -25,11 +25,14 @@ COPY requirements.txt /requirements.txt
 COPY requirements-test.txt /requirements-test.txt
 COPY install-requirements.sh /install-requirements.sh
 
+# ✅ Debugging: Check if the files exist
+RUN ls -l /install-requirements.sh /requirements.txt /requirements-test.txt
+
 # ✅ Make sure install-requirements.sh is executable
 RUN chmod +x /install-requirements.sh
 
-# ✅ Run the installation script
-RUN /install-requirements.sh --requirements-file /requirements.txt --requirements-file /requirements-test.txt
+# ✅ Run the installation script with explicit bash
+RUN bash /install-requirements.sh --requirements-file /requirements.txt --requirements-file /requirements-test.txt
 
 # ✅ Clean up conda cache to reduce image size
 RUN mamba clean --yes --all --force-pkgs-dirs \
