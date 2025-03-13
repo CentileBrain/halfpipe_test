@@ -6,7 +6,7 @@ RUN mamba update --yes --all
 RUN mamba install --yes "boa" "conda-verify"
 
 # Build all custom recipes in one command. We build our own conda packages to simplify
-# the environment creation process, as some of them were only available in pypi.
+# the environment creation process, as some of them were only available in PyPI.
 COPY recipes /recipes
 RUN for pkg in rmath traits niflow-nipype1-workflows nitransforms pybids; do \
         conda mambabuild --no-anaconda-upload /recipes/$pkg && \
@@ -20,7 +20,7 @@ RUN mamba install --yes --use-local \
     "python=3.11" "pip" "nodejs" "rmath" "ants"
 RUN mamba update --yes --all
 
-# ✅ COPY requirement files into the container instead of using --mount
+# ✅ COPY requirement files and installation script instead of --mount
 COPY requirements.txt /requirements.txt
 COPY requirements-test.txt /requirements-test.txt
 COPY install-requirements.sh /install-requirements.sh
@@ -43,8 +43,7 @@ RUN mkdir /ext /host \
 
 # Use `/var/cache` for downloaded resources instead of
 # `/home/fmriprep/.cache`, because it is less likely to be
-# obscured by default bind mounts when running with
-# Singularity
+# obscured by default bind mounts when running with Singularity.
 ENV XDG_CACHE_HOME="/var/cache" \
     HALFPIPE_RESOURCE_DIR="/var/cache/halfpipe" \
     TEMPLATEFLOW_HOME="/var/cache/templateflow"
@@ -69,17 +68,19 @@ RUN python -c "from matplotlib import font_manager" \
     && sed -i '/backend:/s/^#*//;/^backend/s/: .*/: Agg/' \
     $( python -c "import matplotlib; print(matplotlib.matplotlib_fname())" )
 
-# ✅ Copy resource file explicitly
+# ✅ Copy `resource.py` explicitly
 COPY src/halfpipe/resource.py /resource.py
 
 # ✅ Run the resource download script
 RUN python /resource.py
 
-# Add `coinstac` server components
+# ✅ Add `coinstac` server components
 COPY --from=coinstacteam/coinstac-base:latest /server/ /server/
 
-# Install `halfpipe`
-COPY halfpipe /halfpipe  # Ensure the "halfpipe" directory is copied
+# ✅ Copy `halfpipe` correctly from `src/halfpipe/`
+COPY src/halfpipe /halfpipe
+
+# ✅ Install `halfpipe`
 RUN pip install --no-deps /halfpipe \
     && rm -rf ~/.cache/pip /var/cache/pip /tmp/* /var/tmp/* \
     && sync
