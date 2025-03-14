@@ -1,1 +1,0 @@
-this version changes template download path from resampling/alt.py and fmriprep.py based on 10_17 version.

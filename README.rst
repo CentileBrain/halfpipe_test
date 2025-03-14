@@ -21,18 +21,8 @@ group analysis. It provides state-of-the-art preprocessing using
 necessity to convert data to the `BIDS
 <https://bids-specification.readthedocs.io/en/stable/>`__ format. Common
 resting-state and task-based fMRI features can then be calculated on the
-fly.
-
-`HALFpipe` relies on tools from well-established neuroimaging software
-packages, either directly or through our dependencies, including `ANTs
-<https://antspy.readthedocs.io/>`__, `FreeSurfer
-<https://surfer.nmr.mgh.harvard.edu/>`__,  `FSL <http://fsl.fmrib.ox.ac.uk/>`__
-and `nipype <https://nipype.readthedocs.io/>`__. We strongly urge users to
-acknowledge these tools when publishing results obtained with HALFpipe.
-
-   Subscribe to our `mailing list <https://mailman.charite.de/mailman/listinfo/halfpipe-announcements>`_ to stay up to date with new developments and releases.
-
-..
+fly using `FSL <http://fsl.fmrib.ox.ac.uk/>`__ and `nipype
+<https://nipype.readthedocs.io/>`__ for statistics.
 
    If you encounter issues, please see the `troubleshooting
    <#troubleshooting>`__ section of this document.
@@ -40,7 +30,7 @@ acknowledge these tools when publishing results obtained with HALFpipe.
 ..
 
    Some sections of this document are marked as outdated. While we are
-   working on updating them, the `paper <https://doi.org/hmts>`__
+   working on updating them, the `pre-print <https://doi.org/gddf>`__
    and the `analysis manual
    <https://docs.google.com/document/d/108-XBIuwtJziRVVdOQv73MRgtK78wfc-NnVu-jSc9oI/edit#heading=h.3y6rt7h7o483>`__
    should be able to answer most questions.
@@ -163,11 +153,11 @@ requires approximately 5 gigabytes of storage.
 
    -  -  Singularity
       -  3.x
-      -  https://download.fmri.science/singularity/halfpipe-latest.sif
+      -  https://download.fmri.science/singularity/halfpipe-halfpipe-latest.sif
 
    -  -  Singularity
       -  2.x
-      -  https://download.fmri.science/singularity/halfpipe-latest.simg
+      -  https://download.fmri.science/singularity/halfpipe-halfpipe-latest.simg
 
    -  -  Docker
       -  ..
@@ -575,15 +565,12 @@ Models are statistical analyses that are carried out on the features.
       ``screen``/``tmux`` session with ``Control+d`` again. If the
       command hasn’t finished yet, detach as before and come back later
 
-..
-
-    Are you getting a "missing dependencies" error? Some clusters configure singularity with an option called `mount hostfs <https://sylabs.io/guides/3.9/user-guide/bind_paths_and_mounts.html#disabling-system-binds>`_ that will bind all cluster file systems into the container. These file systems may in some cases have paths that conflict with where software is installed in the ``HALFpipe`` container, effectively overwriting that software. You can disable this by adding the option ``--no-mount hostfs`` right after ``singularity run``.
-
 ****************
  Quality checks
 ****************
 
-Please see the `manual <https://drive.google.com/file/d/1TMg9MRvBwZO8HB1UJmH0gm4tYaBVnvcQ/view>`_
+Please see the manual at
+https://docs.google.com/document/d/1evDkVaoXqSaxulp5eSxVqgaxro7yZl-gao70D0S2dH8
 
 *********
  Outputs
@@ -802,7 +789,7 @@ workflow, and run.
    available, or the ``spec.json`` is changed, for example to add a new
    feature or group model). Otherwise, the ``uuid`` stays the same.
    Therefore, if a workflow file with the calculated ``uuid`` already
-   exists, then we do not need to run this stage. We can simple reuse
+   exists, then we do not need to run this stage. We can simple re-use
    the workflow from the existing file, and save some time.
 
 -  In this stage, we can also decide to split the execution into chunks.

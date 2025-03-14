@@ -1,5 +1,0 @@
-This version (v20) is based on HALFpipe_3_7_v1 (v19), and made the following changes:
-
-1. in workflow/reports/anat.py, comment out line 52; line 53 add :cohort-2 position in between.
-
-2. resource.py line 17,19 add original report template for nii.gz keys.

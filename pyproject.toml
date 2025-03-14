@@ -1,40 +1,9 @@
-[project]
-name = "halfpipe"
-dynamic = ["version"]
-requires-python = ">=3.11"
-
-description = "ENIGMA HALFpipe facilitates reproducible analysis of fMRI data, including preprocessing, single-subject, and group analysis"
-
-authors = [{ name = "Lea Waller", email = "lea@fmri.science" }]
-
-license = { file = "LICENSE.txt" }
-readme = "README.md"
-
-[project.urls]
-repository = "https://github.com/HALFpipe/HALFpipe"
-
-[project.scripts]
-halfpipe = "halfpipe.cli.run:main"
-
 [build-system]
-# Remember to keep in sync with requirements.in!
-requires = ["setuptools>=62", "setuptools_scm[toml]>=6.2", "wheel"]
+# keep in sync with requirements.in
+requires = ["setuptools>=45", "setuptools_scm[toml]>=6.2", "wheel"]
 
-[tool.ruff]
-line-length = 127
-
-[tool.ruff.lint]
-select = [
-    "F", # pyflakes
-    "E", # pycodestyle
-    "W", # pycodestyle
-    "I", # isort
-    "B", # bugbears
-    "N", # pep8-naming
-]
-
-[tool.setuptools]
-package-dir = { "" = "src" }
+[tool.isort]
+profile = "black"
 
 [tool.setuptools_scm]
 version_scheme = "no-guess-dev"
