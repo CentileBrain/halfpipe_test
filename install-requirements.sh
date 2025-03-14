@@ -93,7 +93,8 @@ while read -r requirement; do
 
     if [ "${package_manager}" = "none" ]; then
         printf 'Using pip for package "%s"\n' "${requirement}"
-        pip_packages+=("\"${requirement}\"")
+        # pip_packages+=("\"${requirement}\"")
+        pip_packages+=("${requirement}")
         package_manager="pip"
     fi
 
